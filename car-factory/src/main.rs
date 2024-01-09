@@ -16,23 +16,24 @@ enum Transmission {
 }
 
 #[derive(PartialEq, Debug)]
+// Declare enum for Car age
 enum Age {
     New,
     Used,
 }
 
+//////////////////////////////////////////////////
+
 // Get the car quality by testing the value of the input argument
 // - miles (u32)
-// Create a tuple for the car quality with the Age ("New" or "Used") and mileage
-// Return a tuple with the arrow `->` syntax
+// Return tuple with car age ("New" or "Used") and mileage
 fn car_quality(miles: u32) -> (Age, u32) {
-    // Declare and initialize the return tuple value
-    // For a new car, set the miles to 0
-    let quality: (Age, u32) = (Age::New, miles);
+    todo!("Add conditional expression: If car has accumulated miles, return tuple for Used car with current mileage");
 
-    // Return the completed tuple to the caller
-    quality
+    todo!("Return tuple for New car with zero miles");
 }
+
+//////////////////////////////////////////////////
 
 // Build a new "Car" using the values of four input arguments
 // - color (String)
@@ -42,47 +43,35 @@ fn car_quality(miles: u32) -> (Age, u32) {
 // Call the car_quality(miles) function to get the car age
 // Return an instance of a "Car" struct with the arrow `->` syntax
 fn car_factory(color: String, motor: Transmission, roof: bool, miles: u32) -> Car {
+    // Show details about car order
+    // - Check if order is for Used or New car, then check the roof type
+    // - Print details for New or Used car based on roof type
+    todo!("Add conditional expression: If car is Used age, then check roof type");
+    todo!("Add conditional expression: If roof is a hard top, print details");
+    // Call the `println!` macro to show the car order details
+    println!(
+        "Prepare a used car: {:?}, {}, Hard top, {} miles\n",
+        motor, color, miles
+    );
+
     // Create a new "Car" instance as requested
     // - Bind first three fields to values of input arguments
-    // - "age" field calls "car_quality" function with "miles" input argument
+    // - Bind "age" to tuple returned from car_quality(miles)
     Car {
-        color,
-        motor,
-        roof,
+        color: color,
+        motor: motor,
+        roof: roof,
         age: car_quality(miles),
     }
 }
 
 fn main() {
-    // Create car color array
-    let colors: [&str; 4] = ["Blue", "Green", "Red", "Silver"];
-
-    // Declare the car type and initial values
-    let mut car: Car;
-    let mut engine: Transmission = Transmission::Manual;
-
-    // Order 3 cars, one car for each type of transmission
-
     // Car order #1: New, Manual, Hard top
-    car = car_factory(String::from(colors[0]), engine, true, 0);
-    println!(
-        "Car order 1: {:?}, Hard top = {}, {:?}, {}, {} miles",
-        car.age.0, car.roof, car.motor, car.color, car.age.1
-    );
+    car_factory(String::from("Orange"), Transmission::Manual, true, 0);
 
     // Car order #2: Used, Semi-automatic, Convertible
-    engine = Transmission::SemiAuto;
-    car = car_factory(String::from(colors[1]), engine, false, 100);
-    println!(
-        "Car order 2: {:?}, Hard top = {}, {:?}, {}, {} miles",
-        car.age.0, car.roof, car.motor, car.color, car.age.1
-    );
+    car_factory(String::from("Red"), Transmission::SemiAuto, false, 565);
 
     // Car order #3: Used, Automatic, Hard top
-    engine = Transmission::Automatic;
-    car = car_factory(String::from(colors[2]), engine, true, 200);
-    println!(
-        "Car order 3: {:?}, Hard top = {}, {:?}, {}, {} miles",
-        car.age.0, car.roof, car.motor, car.color, car.age.1
-    );
+    car_factory(String::from("White"), Transmission::Automatic, true, 3000);
 }
