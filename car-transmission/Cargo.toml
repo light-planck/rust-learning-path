@@ -1,4 +1,3 @@
-workspace = { members = ["car-factory"] }
 [package]
 name = "car-transmission"
 version = "0.1.0"
