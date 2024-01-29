@@ -1,6 +1,5 @@
-workspace = { members = ["full-name"] }
 [package]
-name = "rust-learning-path"
+name = "full-name"
 version = "0.1.0"
 edition = "2021"
 

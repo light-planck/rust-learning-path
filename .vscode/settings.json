@@ -1,3 +1,8 @@
 {
-  "rust-analyzer.linkedProjects": ["Cargo.toml", "./car-factory/Cargo.toml"]
+  "rust-analyzer.linkedProjects": [
+    "Cargo.toml",
+    "./car-factory/Cargo.toml",
+    "./full-name/Cargo.toml",
+    "./full-name/Cargo.toml"
+  ]
 }
